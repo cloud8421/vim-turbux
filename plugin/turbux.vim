@@ -27,6 +27,8 @@ function! s:prefix_for_test(file)
     return "rspec "
   elseif a:file =~# '\(\<test_.*\|_test\)\.rb$'
     return "ruby -Itest "
+  elseif a:file =~# '\(.coffee\|.js\)'
+    return "bin/test "
   elseif a:file =~# '.feature$'
     if a:file =~# '\<spec/'
       return "rspec -rturnip "
